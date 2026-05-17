@@ -1,0 +1,130 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../config/site";
+
+const categories = [
+  {
+    icon: "🛡",
+    title: "생명보험",
+    items: [
+      "종신보험 / 정기보험",
+      "유병자·간편심사 보험",
+      "상속·증여 플래닝",
+    ],
+    desc: "가족의 미래 책임을 가장 합리적인 보험료로 설계합니다.",
+  },
+  {
+    icon: "💊",
+    title: "건강·실손보험",
+    items: [
+      "4세대 실손의료비",
+      "암·뇌·심장 진단비",
+      "치매·간병 LTC",
+    ],
+    desc: "치료비 부담을 덜고 회복기 소득까지 보장합니다.",
+  },
+  {
+    icon: "🚗",
+    title: "자동차보험",
+    items: [
+      "다이렉트 비교 견적",
+      "법인 차량 단체할인",
+      "운전자보험 패키지",
+    ],
+    desc: "특약 조합을 최적화하여 가성비 높은 보험료로 안내합니다.",
+  },
+  {
+    icon: "🏢",
+    title: "사업자보험",
+    items: [
+      "화재·배상책임",
+      "임직원 단체보험",
+      "퇴직연금·키맨보험",
+    ],
+    desc: "사업장 위험과 직원 복지를 동시에 케어합니다.",
+  },
+  {
+    icon: "🌱",
+    title: "연금·저축",
+    items: [
+      "세제적격 연금저축",
+      "변액연금·VUL",
+      "달러보험·외화 저축",
+    ],
+    desc: "세제 혜택과 노후 현금흐름을 함께 설계합니다.",
+  },
+  {
+    icon: "📋",
+    title: "보장 분석·리모델링",
+    items: [
+      "기존 증권 무료 진단",
+      "중복·과잉 보장 정리",
+      "결혼·출산 시점 재설계",
+    ],
+    desc: "현재 가입 상태를 그래프로 시각화하여 빈틈을 찾아드립니다.",
+  },
+];
+---
+
+<Layout title="보험상품" description={`${site.name}가 제공하는 보험 상품 카테고리 — 생명·건강·자동차·사업자·연금·보장분석.`}>
+  <section class="bg-gradient-to-b from-brand-50 to-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-700">Services</p>
+      <h1 class="mt-3 text-3xl sm:text-4xl font-bold text-slate-900">
+        모든 보장의 시작과 끝,<br />한 곳에서 설계
+      </h1>
+      <p class="mt-6 max-w-2xl text-base sm:text-lg text-slate-600 leading-relaxed">
+        30+ 보험사 상품을 비교하여 고객의 라이프스테이지에 맞는 최적 솔루션을 제공합니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {categories.map((c) => (
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 hover:border-brand-300 hover:shadow-md transition">
+          <div class="text-3xl">{c.icon}</div>
+          <h2 class="mt-4 text-xl font-bold text-slate-900">{c.title}</h2>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">{c.desc}</p>
+          <ul class="mt-5 space-y-2 text-sm text-slate-700">
+            {c.items.map((it) => (
+              <li class="flex gap-2">
+                <span class="text-brand-600 mt-0.5">✓</span>
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">상담 절차</h2>
+      <ol class="mt-10 grid gap-6 sm:grid-cols-3 text-left">
+        <li class="rounded-2xl bg-white p-6 border border-slate-200">
+          <span class="text-sm font-semibold text-brand-700">STEP 01</span>
+          <h3 class="mt-2 text-lg font-semibold text-slate-900">신청</h3>
+          <p class="mt-2 text-sm text-slate-600">전화 또는 온라인 폼으로 상담 신청.</p>
+        </li>
+        <li class="rounded-2xl bg-white p-6 border border-slate-200">
+          <span class="text-sm font-semibold text-brand-700">STEP 02</span>
+          <h3 class="mt-2 text-lg font-semibold text-slate-900">진단·설계</h3>
+          <p class="mt-2 text-sm text-slate-600">기존 증권 분석 + 라이프스테이지 맞춤 설계안 제시.</p>
+        </li>
+        <li class="rounded-2xl bg-white p-6 border border-slate-200">
+          <span class="text-sm font-semibold text-brand-700">STEP 03</span>
+          <h3 class="mt-2 text-lg font-semibold text-slate-900">가입·관리</h3>
+          <p class="mt-2 text-sm text-slate-600">전자청약 후 청구·갱신까지 평생 사후관리.</p>
+        </li>
+      </ol>
+      <a
+        href={site.contact.phoneHref}
+        class="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-6 py-3 font-semibold text-white hover:bg-brand-700"
+      >
+        전화 상담 {site.contact.phone}
+      </a>
+    </div>
+  </section>
+</Layout>
