@@ -1,0 +1,28 @@
+---
+const stats = [
+  { value: "30", suffix: "+", label: "제휴 보험사", sub: "생명·손해보험 30+ 직접 비교" },
+  { value: "5,000", suffix: "+", label: "누적 상담세대", sub: "개인·법인·사업자 통합" },
+  { value: "98", suffix: "%", label: "고객 만족도", sub: "재상담·재가입 의향 기준" },
+  { value: "24", suffix: "h", label: "응대 약속", sub: "영업일 기준 회신" },
+];
+---
+
+<section class="relative -mt-px bg-white">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-ink-100 border border-ink-100 -mt-16 sm:-mt-20 bg-white relative z-10 rounded-2xl shadow-[0_30px_80px_-30px_rgba(15,32,64,0.25)] overflow-hidden">
+      {stats.map((s, i) => (
+        <div class="p-6 sm:p-8">
+          <div class="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-700">
+            {String(i + 1).padStart(2, "0")}
+          </div>
+          <div class="mt-4 flex items-baseline gap-0.5">
+            <span class="num text-4xl sm:text-5xl font-bold text-brand-900">{s.value}</span>
+            <span class="num text-2xl sm:text-3xl font-semibold text-accent-500">{s.suffix}</span>
+          </div>
+          <div class="mt-2 text-sm font-semibold text-ink-800">{s.label}</div>
+          <p class="mt-1 text-xs text-ink-500 leading-relaxed">{s.sub}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

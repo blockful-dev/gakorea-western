@@ -1,0 +1,90 @@
+---
+const products = [
+  {
+    code: "01",
+    title: "건강·실손보험",
+    desc: "실손의료비, 진단·수술비 등 의료비 부담 완화.",
+    icon: `<path d="M12 21s-7-4.35-7-10a7 7 0 0 1 12-4.9A7 7 0 0 1 19 11c0 5.65-7 10-7 10z"/><path d="M9 11h2v-2h2v2h2v2h-2v2h-2v-2H9z"/>`,
+  },
+  {
+    code: "02",
+    title: "암·중대질병보험",
+    desc: "암·뇌혈관·심혈관 진단부터 치료까지 정액 보장.",
+    icon: `<path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/>`,
+  },
+  {
+    code: "03",
+    title: "자동차·운전자",
+    desc: "30+ 손해보험사 자동차보험 일괄 비교.",
+    icon: `<path d="M5 17h14M6.5 13l2-5a2 2 0 0 1 2-1.5h3a2 2 0 0 1 2 1.5l2 5"/><path d="M5 13h14v4H5z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/>`,
+  },
+  {
+    code: "04",
+    title: "연금·저축",
+    desc: "노후 소득과 절세를 함께 설계하는 장기 플랜.",
+    icon: `<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 11h18M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/>`,
+  },
+  {
+    code: "05",
+    title: "종신·정기보험",
+    desc: "가장의 책임을 가족에게 전하는 유산형 보장.",
+    icon: `<path d="M12 21s-8-4.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6.5-8 11-8 11z"/>`,
+  },
+  {
+    code: "06",
+    title: "사업자·법인",
+    desc: "퇴직연금, 단체상해, CEO 플랜 등 법인 솔루션.",
+    icon: `<rect x="3" y="7" width="18" height="14"/><path d="M9 7V4h6v3M3 13h18"/>`,
+  },
+];
+---
+
+<section id="products" class="py-20 sm:py-28 bg-white">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-accent-600">
+          ─ Our Products
+        </p>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-brand-950 tracking-tight">
+          한 곳에서 만나는<br />
+          모든 보장의 선택지
+        </h2>
+      </div>
+      <a href="/services" class="group inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-900">
+        전체 상품 보기
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+      {products.map((p) => (
+        <a
+          href="/services"
+          class="group relative overflow-hidden rounded-2xl border border-ink-100 bg-ink-50 hover:bg-white hover:border-brand-200 transition-all duration-300 p-7"
+        >
+          <div class="flex items-start justify-between">
+            <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white ring-1 ring-ink-100 text-brand-700 group-hover:bg-brand-900 group-hover:text-accent-300 group-hover:ring-brand-900 transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" set:html={p.icon}></svg>
+            </div>
+            <span class="text-[10px] font-semibold tracking-[0.2em] text-ink-400">{p.code}</span>
+          </div>
+          <h3 class="mt-8 text-lg font-bold text-brand-950">{p.title}</h3>
+          <p class="mt-2 text-sm text-ink-500 leading-relaxed">{p.desc}</p>
+          <div class="mt-6 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 group-hover:text-accent-500 transition-colors">
+            상담 신청하기
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </div>
+          <!-- Decorative number watermark -->
+          <span class="num pointer-events-none absolute -right-2 -bottom-6 text-[120px] font-bold text-brand-900/[0.04] group-hover:text-brand-900/[0.08] transition-colors">
+            {p.code}
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

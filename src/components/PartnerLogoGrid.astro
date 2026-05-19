@@ -1,0 +1,60 @@
+---
+import { site } from "../config/site";
+import logoManifest from "../config/logo-manifest.json";
+
+const logos = logoManifest as Record<string, string>;
+const all = [...site.partners.life, ...site.partners.nonlife];
+
+interface Props {
+  variant?: "section" | "inline";
+  showHeader?: boolean;
+}
+const { variant = "section", showHeader = true } = Astro.props;
+---
+
+<section class={variant === "section" ? "py-20 sm:py-24 bg-white" : ""}>
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    {showHeader && (
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-accent-600">
+          ─ Partner Insurers
+        </p>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-brand-950 tracking-tight">
+          국내 26개 보험사를<br class="sm:hidden" /> 한 자리에서 비교
+        </h2>
+        <p class="mt-4 text-sm text-ink-500">
+          생명보험 14사 · 손해보험 12사. 특정 보험사에 종속되지 않은 독립 GA.
+        </p>
+      </div>
+    )}
+
+    <div class="border-t border-l border-ink-100 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+      {all.map((p) => (
+        <div class="border-b border-r border-ink-100 aspect-[5/3] flex flex-col items-center justify-center gap-2 p-4 bg-white hover:bg-brand-50/30 transition-colors group">
+          <img
+            src={logos[p.slug] ?? `https://www.google.com/s2/favicons?domain=${p.domain}&sz=128`}
+            alt={p.name}
+            loading="lazy"
+            data-partner-name={p.name}
+            class="logo-grayscale h-9 w-9 object-contain"
+          />
+          <span class="text-[11px] sm:text-xs font-semibold text-ink-500 group-hover:text-brand-800 transition-colors text-center leading-tight">
+            {p.name}
+          </span>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-6 text-xs text-ink-400 text-center">
+      * 위 보험사는 제휴 가능한 회사 목록 예시이며, 실제 가입 가능 상품은 상담 시 안내드립니다.
+    </p>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLImageElement>("img[data-partner-name]").forEach((img) => {
+    img.addEventListener("error", () => {
+      img.style.display = "none";
+    });
+  });
+</script>

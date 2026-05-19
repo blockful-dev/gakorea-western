@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import StickyCTA from "../components/StickyCTA.astro";
+import FloatingQuickMenu from "../components/FloatingQuickMenu.astro";
 import { site } from "../config/site";
 
 interface Props {
@@ -26,14 +27,20 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ko_KR" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"
+    />
     <title>{pageTitle}</title>
   </head>
-  <body class="min-h-screen bg-white text-slate-900 antialiased">
+  <body class="min-h-screen bg-white antialiased">
     <Header />
-    <main class="pb-24">
+    <main class="pb-20 md:pb-0">
       <slot />
     </main>
     <Footer />
     <StickyCTA />
+    <FloatingQuickMenu />
   </body>
 </html>

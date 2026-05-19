@@ -1,0 +1,56 @@
+---
+const notices = [
+  { cat: "공지", date: "2026.05.12", title: "5월 가정의 달 무료 보장진단 캠페인 안내" },
+  { cat: "상품", date: "2026.04.28", title: "삼성생명·교보생명 4월 신상품 약관 비교자료 업데이트" },
+  { cat: "보도", date: "2026.04.15", title: "실손보험 청구 간소화법 본격 시행, 주요 변화 정리" },
+  { cat: "공지", date: "2026.03.22", title: "법인·사업자 대상 퇴직연금 컨설팅 본부 신설" },
+];
+
+const catColor = {
+  공지: "bg-brand-900 text-white",
+  상품: "bg-accent-500 text-white",
+  보도: "bg-ink-200 text-ink-700",
+};
+---
+
+<section class="py-20 sm:py-24 bg-ink-50">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-accent-600">
+          ─ News & Notice
+        </p>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-brand-950 tracking-tight">
+          소식과 안내
+        </h2>
+      </div>
+      <a href="#" class="group inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-900">
+        전체 보기
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      </a>
+    </div>
+
+    <ul class="bg-white rounded-2xl border border-ink-100 divide-y divide-ink-100 overflow-hidden">
+      {notices.map((n) => (
+        <li>
+          <a href="#" class="group flex items-center gap-4 sm:gap-6 px-5 sm:px-7 py-5 hover:bg-brand-50/40 transition-colors">
+            <span class={`shrink-0 inline-flex items-center justify-center rounded-full text-[10px] font-bold tracking-wider px-2.5 py-1 ${catColor[n.cat as keyof typeof catColor]}`}>
+              {n.cat}
+            </span>
+            <span class="num shrink-0 hidden sm:inline text-xs text-ink-400 tabular-nums">
+              {n.date}
+            </span>
+            <span class="flex-1 text-sm sm:text-base font-medium text-ink-800 group-hover:text-brand-900 truncate">
+              {n.title}
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 h-4 w-4 text-ink-300 group-hover:text-brand-700 group-hover:translate-x-1 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

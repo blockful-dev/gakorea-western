@@ -1,119 +1,109 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HeroBanner from "../components/HeroBanner.astro";
+import TrustStats from "../components/TrustStats.astro";
+import ProductGrid from "../components/ProductGrid.astro";
+import QuickInquiryForm from "../components/QuickInquiryForm.astro";
+import Testimonials from "../components/Testimonials.astro";
+import NoticeSection from "../components/NoticeSection.astro";
 import { site } from "../config/site";
-
-const services = [
-  { icon: "🛡", title: "생명보험", desc: "가장의 책임을 지키는 종신·정기보험 설계" },
-  { icon: "💊", title: "건강·실손보험", desc: "치료비 부담을 덜어주는 의료비 보장" },
-  { icon: "🚗", title: "자동차보험", desc: "다이렉트 대비 합리적 가격 비교 견적" },
-  { icon: "🏢", title: "사업자보험", desc: "법인·개인사업자 위험 관리 솔루션" },
-  { icon: "🌱", title: "연금·저축", desc: "노후 자금과 세제 혜택을 함께 설계" },
-  { icon: "📋", title: "보장 분석", desc: "기존 가입 증권 무료 리모델링 상담" },
-];
 
 const reasons = [
   {
-    title: "다양한 보험사 비교",
-    desc: "특정 회사에 얽매이지 않고 30+ 보험사 상품을 한 자리에서 비교 설계.",
+    code: "01",
+    title: "독립 비교",
+    desc: "특정 보험사에 종속되지 않고 30+ 보험사 상품을 객관적으로 비교합니다.",
   },
   {
-    title: "사후관리 책임",
-    desc: "가입 후에도 보장 점검·청구 지원·증권 정리까지 평생 동반.",
+    code: "02",
+    title: "전속 설계사 사후관리",
+    desc: "가입 이후 청구·점검·보장 리뉴얼까지 한 명의 설계사가 평생 관리합니다.",
   },
   {
-    title: "전문 설계사 그룹",
-    desc: "변액·세무·연금 분야 자격 보유 베테랑이 맞춤형 솔루션 제공.",
+    code: "03",
+    title: "수수료 투명 공개",
+    desc: "수수료 구조와 권유 사유를 명시적으로 안내해 신뢰를 우선합니다.",
   },
 ];
 ---
 
-<Layout>
-  <section class="relative overflow-hidden bg-gradient-to-br from-brand-700 via-brand-600 to-brand-800 text-white">
-    <div class="absolute inset-0 opacity-20" aria-hidden="true">
-      <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-white blur-3xl"></div>
-      <div class="absolute -bottom-32 -left-16 h-96 w-96 rounded-full bg-brand-300 blur-3xl"></div>
-    </div>
-    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-      <p class="text-sm font-semibold uppercase tracking-widest text-brand-200">
-        {site.shortName}
-      </p>
-      <h1 class="mt-3 text-3xl sm:text-5xl font-bold tracking-tight leading-tight">
-        고객의 미래를 함께<br class="sm:hidden" /> 설계하는<br />
-        <span class="text-brand-200">보험 파트너</span>
-      </h1>
-      <p class="mt-6 max-w-2xl text-base sm:text-lg text-brand-50/90 leading-relaxed">
-        {site.tagline}. 생명·건강·자동차·사업자·연금까지 한 곳에서 비교하고
-        가장 합리적인 보장으로 안내드립니다.
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row gap-3">
-        <a
-          href={site.contact.phoneHref}
-          class="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-base font-semibold text-brand-700 hover:bg-brand-50 transition"
-        >
-          전화 상담 {site.contact.phone}
-        </a>
-        <a
-          href="/contact"
-          class="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-6 py-3 text-base font-semibold text-white hover:bg-white/10 transition"
-        >
-          상담 신청하기
-        </a>
-      </div>
-    </div>
-  </section>
+<Layout description={site.description}>
+  <HeroBanner />
+  <TrustStats />
+  <ProductGrid />
 
-  <section class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-    <div class="text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">취급 보험상품</h2>
-      <p class="mt-3 text-slate-600">생애 모든 단계에 필요한 보장을 균형 있게 설계합니다.</p>
-    </div>
-    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => (
-        <div class="group rounded-2xl border border-slate-200 bg-white p-6 hover:border-brand-300 hover:shadow-md transition">
-          <div class="text-3xl">{s.icon}</div>
-          <h3 class="mt-4 text-lg font-semibold text-slate-900">{s.title}</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">{s.desc}</p>
-        </div>
-      ))}
-    </div>
-    <div class="mt-8 text-center">
-      <a href="/services" class="inline-flex items-center gap-1 text-brand-700 hover:text-brand-800 font-semibold">
-        보험상품 자세히 보기 →
-      </a>
-    </div>
-  </section>
-
-  <section class="bg-slate-50 py-16 sm:py-20">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">왜 지에이코리아 웨스턴지사인가</h2>
+  <!-- Why us — minimal split -->
+  <section class="py-20 sm:py-28 bg-white border-t border-ink-100">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-4">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-accent-600">
+          ─ Why Us
+        </p>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-brand-950 tracking-tight leading-[1.15]">
+          왜 GA 인가,<br />
+          왜 우리인가.
+        </h2>
+        <p class="mt-6 text-sm text-ink-500 leading-relaxed max-w-sm">
+          한 회사의 상품만 권하는 전속 채널과 달리, GA는 시장 전체를 살펴 고객에게 가장 적절한 보장을 제안합니다.
+          그 차이가, 가족의 30년 보장을 바꿉니다.
+        </p>
       </div>
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        {reasons.map((r, i) => (
-          <div class="rounded-2xl bg-white p-6 border border-slate-200">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 font-bold">
-              {String(i + 1).padStart(2, "0")}
+
+      <div class="lg:col-span-8 space-y-px bg-ink-100">
+        {reasons.map((r) => (
+          <div class="bg-white flex items-start gap-6 sm:gap-10 p-6 sm:p-8">
+            <span class="num text-3xl sm:text-4xl font-bold text-accent-500 shrink-0 leading-none">
+              {r.code}
             </span>
-            <h3 class="mt-4 text-lg font-semibold text-slate-900">{r.title}</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">{r.desc}</p>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-brand-950">{r.title}</h3>
+              <p class="mt-2 text-sm text-ink-600 leading-relaxed">{r.desc}</p>
+            </div>
+            <svg class="ml-auto shrink-0 h-5 w-5 text-ink-300 mt-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 6l6 6-6 6"/>
+            </svg>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-    <div class="rounded-3xl bg-brand-700 px-6 sm:px-12 py-12 sm:py-16 text-center text-white">
-      <h2 class="text-2xl sm:text-3xl font-bold">무료 보장 분석 상담</h2>
-      <p class="mt-3 text-brand-100">
-        현재 가입한 보험증권을 한 번에 진단받아보세요. 비용 부담은 줄이고 보장은 그대로.
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-        <a href={site.contact.phoneHref} class="rounded-full bg-white px-6 py-3 font-semibold text-brand-700 hover:bg-brand-50">
-          전화 {site.contact.phone}
+  <QuickInquiryForm />
+  <Testimonials />
+  <NoticeSection />
+
+  <!-- Closing CTA strip -->
+  <section class="relative overflow-hidden bg-brand-950 text-white">
+    <div class="absolute inset-0 grid-texture opacity-50" aria-hidden="true"></div>
+    <div
+      class="absolute right-0 top-0 h-full w-1/2 opacity-30"
+      style="background: radial-gradient(circle at top right, var(--color-accent-400) 0%, transparent 60%);"
+      aria-hidden="true"
+    ></div>
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-accent-300">
+          Ready to plan?
+        </p>
+        <h2 class="mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-tight">
+          오늘의 작은 점검이,<br />내일의 큰 안심이 됩니다.
+        </h2>
+      </div>
+      <div class="flex flex-col sm:flex-row items-start gap-3">
+        <a
+          href="#inquiry"
+          class="group inline-flex items-center gap-2 rounded-full bg-accent-500 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-accent-900/40 hover:bg-accent-600 transition-colors"
+        >
+          무료 상담 신청
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
         </a>
-        <a href="/contact" class="rounded-full border border-white/40 px-6 py-3 font-semibold hover:bg-white/10">
-          온라인 문의
+        <a
+          href={site.contact.phoneHref}
+          class="inline-flex items-center gap-2 rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors num"
+        >
+          {site.contact.phone}
         </a>
       </div>
     </div>

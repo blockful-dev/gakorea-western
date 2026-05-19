@@ -1,27 +1,45 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Pretendard Variable";
-  font-weight: 45 920;
-  font-style: normal;
-  font-display: swap;
-  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/PretendardVariable.woff2") format("woff2-variations");
-}
-
 @theme {
   --font-sans: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --font-display: "Pretendard Variable", "Pretendard", -apple-system, sans-serif;
 
-  --color-brand-50: #eef5ff;
-  --color-brand-100: #d9e7ff;
-  --color-brand-200: #bcd4ff;
-  --color-brand-300: #8eb6ff;
-  --color-brand-400: #598eff;
-  --color-brand-500: #3366ff;
-  --color-brand-600: #1f47e6;
-  --color-brand-700: #1838b8;
-  --color-brand-800: #16308f;
-  --color-brand-900: #142a72;
-  --color-brand-950: #0d1a47;
+  /* Navy: trust, institutional weight */
+  --color-brand-50: #f1f5fb;
+  --color-brand-100: #dde7f4;
+  --color-brand-200: #b9cce8;
+  --color-brand-300: #8aaad7;
+  --color-brand-400: #5b85c2;
+  --color-brand-500: #3a66a8;
+  --color-brand-600: #2a4f8a;
+  --color-brand-700: #1f3d6e;
+  --color-brand-800: #172e54;
+  --color-brand-900: #0f2040;
+  --color-brand-950: #081328;
+
+  /* Accent: warm coral for CTAs and emphasis */
+  --color-accent-50: #fff4f1;
+  --color-accent-100: #ffe3db;
+  --color-accent-200: #ffc4b3;
+  --color-accent-300: #ff9b80;
+  --color-accent-400: #ff6f4e;
+  --color-accent-500: #f04d2a;
+  --color-accent-600: #d83a1c;
+  --color-accent-700: #b22e16;
+  --color-accent-800: #8c2412;
+  --color-accent-900: #6a1c0f;
+
+  /* Ink: sophisticated neutrals */
+  --color-ink-50: #f8f8f6;
+  --color-ink-100: #efefea;
+  --color-ink-200: #dcdcd4;
+  --color-ink-300: #b8b8ac;
+  --color-ink-400: #8a8a7c;
+  --color-ink-500: #5e5e52;
+  --color-ink-600: #44443a;
+  --color-ink-700: #2f2f27;
+  --color-ink-800: #1c1c17;
+  --color-ink-900: #0d0d0a;
 }
 
 html {
@@ -34,4 +52,40 @@ html {
 body {
   word-break: keep-all;
   overflow-wrap: break-word;
+  background-color: #ffffff;
+  color: var(--color-ink-800);
+}
+
+/* Subtle entrance for hero on first paint */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise-in { animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.rise-in-1 { animation-delay: 0.05s; }
+.rise-in-2 { animation-delay: 0.15s; }
+.rise-in-3 { animation-delay: 0.25s; }
+.rise-in-4 { animation-delay: 0.35s; }
+
+/* Numeric display utility: tabular figures */
+.num {
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  letter-spacing: -0.02em;
+}
+
+/* Hero grid texture */
+.grid-texture {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Logo grayscale → color */
+.logo-grayscale {
+  filter: grayscale(100%) opacity(0.65);
+  transition: filter 0.3s ease;
+}
+.logo-grayscale:hover {
+  filter: grayscale(0%) opacity(1);
 }

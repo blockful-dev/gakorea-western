@@ -1,0 +1,78 @@
+---
+const reviews = [
+  {
+    initial: "박",
+    nameMask: "박○○ 고객",
+    meta: "40대 · 자영업 · 강서구",
+    title: "기존 보험의 중복 보장을 정리",
+    body: "여러 보험사 상품을 직접 비교해주시고, 중복되던 진단비 특약을 정리하면서 월 보험료가 12만원 줄었습니다. 강요 없이 객관적으로 봐주신 점이 인상적이었어요.",
+    tag: "건강·암보험 설계",
+  },
+  {
+    initial: "이",
+    nameMask: "이○○ 고객",
+    meta: "30대 · 신혼부부 · 마곡",
+    title: "라이프 스테이지 맞춤 추천",
+    body: "결혼 후 가족 단위 보장이 처음이라 막막했는데, 부부 합산으로 종신·실손·연금까지 우선순위를 짚어주셔서 안심하고 결정할 수 있었습니다.",
+    tag: "가족 보장 설계",
+  },
+  {
+    initial: "최",
+    nameMask: "최○○ 대표",
+    meta: "법인 · 제조업 · 가양",
+    title: "퇴직연금·CEO 플랜 동시 설계",
+    body: "임직원 단체보험과 대표 퇴직플랜을 한 번에 설계해주셔서 운영 부담이 줄었습니다. 가입 후에도 분기별로 점검 미팅을 진행해주십니다.",
+    tag: "법인·사업자 컨설팅",
+  },
+];
+---
+
+<section class="py-20 sm:py-28 bg-white">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <p class="text-xs font-semibold uppercase tracking-[0.22em] text-accent-600">
+        ─ Client Voices
+      </p>
+      <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-brand-950 tracking-tight">
+        실제 상담 고객의 이야기
+      </h2>
+      <p class="mt-4 text-base text-ink-500 leading-relaxed">
+        가입 이후의 청구와 점검까지 함께한, 검증된 후기입니다.
+      </p>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-3 gap-5">
+      {reviews.map((r, i) => (
+        <article class="group relative bg-white rounded-2xl border border-ink-100 hover:border-brand-200 hover:shadow-[0_30px_60px_-30px_rgba(15,32,64,0.25)] p-7 transition-all duration-300 flex flex-col">
+          <!-- Quote mark -->
+          <svg class="absolute top-6 right-6 h-10 w-10 text-brand-100 group-hover:text-accent-200 transition-colors" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M9 7H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2v3a2 2 0 0 1-2 2H4v2h1a4 4 0 0 0 4-4V9a2 2 0 0 0 0-2zm10 0h-4a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2v3a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V9a2 2 0 0 0-2-2z"/>
+          </svg>
+
+          <span class="inline-block text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-600">
+            CASE {String(i + 1).padStart(2, "0")}
+          </span>
+          <h3 class="mt-4 text-lg font-bold text-brand-950 leading-snug">
+            "{r.title}"
+          </h3>
+          <p class="mt-4 text-sm text-ink-600 leading-relaxed flex-1">
+            {r.body}
+          </p>
+
+          <div class="mt-7 pt-5 border-t border-ink-100 flex items-center gap-3">
+            <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-800 text-sm font-bold">
+              {r.initial}
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-brand-950">{r.nameMask}</div>
+              <div class="text-xs text-ink-500">{r.meta}</div>
+            </div>
+            <span class="ml-auto inline-block rounded-full bg-brand-50 px-2.5 py-1 text-[10px] font-semibold text-brand-700">
+              {r.tag}
+            </span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

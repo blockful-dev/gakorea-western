@@ -1,0 +1,106 @@
+---
+import { site } from "../config/site";
+---
+
+<section class="relative overflow-hidden bg-brand-950 text-white">
+  <!-- Background composition -->
+  <div class="absolute inset-0 grid-texture opacity-60" aria-hidden="true"></div>
+  <div
+    class="absolute -right-32 -top-32 h-[720px] w-[720px] rounded-full opacity-40 blur-3xl"
+    style="background: radial-gradient(circle at center, var(--color-brand-500) 0%, transparent 60%);"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="absolute -left-40 bottom-0 h-[520px] w-[520px] rounded-full opacity-30 blur-3xl"
+    style="background: radial-gradient(circle at center, var(--color-accent-400) 0%, transparent 65%);"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Geometric monogram -->
+  <svg
+    class="absolute right-6 top-8 hidden lg:block opacity-25"
+    width="280"
+    height="280"
+    viewBox="0 0 200 200"
+    fill="none"
+    aria-hidden="true"
+  >
+    <circle cx="100" cy="100" r="98" stroke="white" stroke-width="0.5" />
+    <circle cx="100" cy="100" r="70" stroke="white" stroke-width="0.5" />
+    <circle cx="100" cy="100" r="42" stroke="white" stroke-width="0.5" />
+    <path d="M2 100 L 198 100 M 100 2 L 100 198" stroke="white" stroke-width="0.3" />
+    <path
+      d="M60 130 L 90 80 L 110 110 L 140 60"
+      stroke="var(--color-accent-400)"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="none"
+    />
+  </svg>
+
+  <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
+    <div class="max-w-2xl">
+      <div class="rise-in rise-in-1 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur px-3 py-1.5 text-xs font-medium tracking-wide text-brand-100">
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent-400 animate-pulse"></span>
+        Independent General Agency · Seoul West
+      </div>
+
+      <h1 class="rise-in rise-in-2 mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight">
+        한 사람의 평생을<br />
+        <span class="text-accent-300">설계</span>합니다.
+      </h1>
+
+      <p class="rise-in rise-in-3 mt-6 max-w-xl text-base sm:text-lg text-brand-100/85 leading-relaxed">
+        30개 이상의 국내 보험사를 한 자리에서 비교하고, 가족의 라이프스테이지에 가장 맞는 보장을
+        독립적인 시각으로 제안합니다.
+      </p>
+
+      <div class="rise-in rise-in-4 mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+        <a
+          href="#inquiry"
+          class="group inline-flex items-center gap-2 rounded-full bg-accent-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent-900/30 hover:bg-accent-600 transition-colors"
+        >
+          무료 보장분석 신청
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+        <a
+          href={site.contact.phoneHref}
+          class="inline-flex items-center gap-2 rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          {site.contact.phone}
+        </a>
+      </div>
+
+      <!-- Hero footer ticker -->
+      <div class="rise-in rise-in-4 mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-brand-200/70">
+        <span class="inline-flex items-center gap-2">
+          <svg class="h-4 w-4 text-accent-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+          금융감독원 등록 보험대리점
+        </span>
+        <span class="inline-flex items-center gap-2">
+          <svg class="h-4 w-4 text-accent-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+          전속 설계사 1:1 사후관리
+        </span>
+        <span class="inline-flex items-center gap-2">
+          <svg class="h-4 w-4 text-accent-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+          상담료 100% 무료
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom seam -->
+  <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+</section>
